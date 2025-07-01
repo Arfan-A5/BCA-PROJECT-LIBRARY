@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Project - BCA Project Library</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav_bar">
+        <div class="logo">
+          <h2>BCA Project Library</h2>
+        </div>
+        <ul id="sub_nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about-us.html">About Us</a></li>
+          <li><a href="../contributors.html">Contributors</a></li>
+          <li><a href="../admin-login.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <section class="form-box">
+        <h2>Add New Project</h2>
+
+        <form id="addProjectForm">
+          <div class="form-group">
+            <label for="title">Project Title</label>
+            <input type="text" id="title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="group">Group Name</label>
+            <input type="text" id="group" required />
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="members">Members (comma-separated)</label>
+            <input
+              type="text"
+              id="members"
+              placeholder="e.g., Ayan, Rehan, Zoya"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contributions"
+              >Contributions (order should match members)</label
+            >
+            <input
+              type="text"
+              id="contributions"
+              placeholder="e.g., Frontend, Backend, Designer"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="tags">Tags</label>
+            <input type="text" id="tags" placeholder="#Web #AI #JavaScript" />
+          </div>
+
+          <div class="form-group">
+            <label for="github">GitHub Link (optional)</label>
+            <input
+              type="url"
+              id="github"
+              placeholder="https://github.com/user/project"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="screenshot">Upload Screenshot (optional)</label>
+            <input type="file" id="screenshot" accept="image/*" />
+            <!-- Existing screenshot preview (only for edit mode) -->
+            <div id="existingScreenshotPreview" style="margin-top: 10px"></div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 15px; flex-wrap: wrap">
+            <button
+              type="button"
+              class="login-button"
+              onclick="previewProject()"
+            >
+              Preview
+            </button>
+            <button type="submit" class="login-button submit-button">
+              Submit Project
+            </button>
+          </div>
+        </form>
+
+        <!-- Preview Area -->
+        <div id="previewArea" style="display: none; margin-top: 30px">
+          <h3>🔎 Project Preview:</h3>
+          <div class="project-list" id="previewContent"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <ul>
+        <li><a href="../footer/disclaimer.html">Disclaimer</a></li>
+        <li><a href="../footer/T&C.html">Terms and Conditions</a></li>
+        <li><a href="../footer/privacy.html">Privacy Policy</a></li>
+        <li><a href="../footer/contact.html">Contact Us</a></li>
+      </ul>
+      <div class="copyright">
+        &copy; 2025 BCA Project Library. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Message Box -->
+    <div id="messageBox" class="message-box"></div>
+
+    <!-- Confirm Box -->
+    <div id="confirmBox" class="confirm-box" style="display: none">
+      <div class="confirm-content">
+        <p id="confirmMessage"></p>
+        <div class="confirm-buttons">
+          <button id="confirmYes" class="login-button">Yes</button>
+          <button
+            id="confirmCancel"
+            class="login-button"
+            style="background-color: gray"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

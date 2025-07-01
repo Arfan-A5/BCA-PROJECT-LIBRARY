@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard - BCA Project Library</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav_bar">
+        <div class="logo">
+          <h2>Admin Panel</h2>
+        </div>
+         <button class="admin-menu-toggle">&#9776;</button>
+        <ul id="sub_nav">
+          <li><a href="../index.html">View Site</a></li>
+          <li><a href="../admin-login.html">Logout</a></li>
+          <li>
+            <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+          </li>
+          <li>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="🔍 Search projects..."
+              class="nav-search"
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Admin Content -->
+    <main class="main">
+      <h1>Welcome, Admin!</h1>
+
+      <div class="admin-actions">
+        <a href="add-project.html" class="add-button">+ Add New Project</a>
+      </div>
+
+      <section class="project-list">
+        <!-- Admin Project List Placeholder -->
+        <p>No projects added yet.</p>
+        <!-- JS can later inject list of projects with Edit/Delete buttons -->
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <ul>
+        <li><a href="../footer/disclaimer.html">Disclaimer</a></li>
+        <li><a href="../footer/T&C.html">Terms and Conditions</a></li>
+        <li><a href="../footer/privacy.html">Privacy Policy</a></li>
+        <li><a href="../footer/contact.html">Contact Us</a></li>
+      </ul>
+      <div class="copyright">&copy; 2025 BCA Project Library. Admin Panel.</div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmBox" class="confirm-modal">
+      <div class="confirm-content">
+        <p id="confirmMessage">Are you sure?</p>
+        <div class="confirm-actions">
+          <button id="confirmYes">Yes</button>
+          <button id="confirmCancel">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
