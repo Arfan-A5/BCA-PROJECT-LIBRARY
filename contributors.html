@@ -1,0 +1,185 @@
+<!-- contributors.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contributors - BCA Project Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav_bar">
+        <div class="logo">
+          <h2>BCA Project Library</h2>
+        </div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <ul id="sub_nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contributors.html">Contributors</a></li>
+          <li><a href="admin-login.html">Admin Login</a></li>
+          <li>
+            <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+          </li>
+          <li>
+            <input
+              class="nav-search"
+              type="text"
+              id="contributorSearch"
+              placeholder="🔍Search contributors..."
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+      <h2 style="margin-bottom: 20px">📋 Project Contributors</h2>
+      <div id="contributorList" class="contributor-grid"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <ul>
+        <li><a href="footer/disclaimer.html">Disclaimer</a></li>
+        <li><a href="footer/T&C.html">Terms and Conditions</a></li>
+        <li><a href="footer/privacy.html">Privacy Policy</a></li>
+        <li><a href="footer/contact.html">Contact Us</a></li>
+      </ul>
+      <div class="copyright">
+        &copy; 2025 BCA Project Library. All rights reserved.
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const contributorList = document.getElementById("contributorList");
+        const projects = JSON.parse(localStorage.getItem("bcaProjects")) || [];
+
+        let contributors = [];
+
+        projects.forEach((p) => {
+          const names = p.members.split(",");
+          const roles = p.contributions.split(",");
+
+          names.forEach((name, i) => {
+            contributors.push({
+              name: name.trim(),
+              role: roles[i] ? roles[i].trim() : "Contributor",
+              project: p.title,
+            });
+          });
+        });
+
+        if (contributors.length === 0) {
+          contributorList.innerHTML = "<p>No contributors found yet.</p>";
+          return;
+        }
+
+        contributorList.innerHTML = contributors
+          .map(
+            (c) => `
+        <div class="contributor-card">
+          <div class="avatar">${c.name.charAt(0).toUpperCase()}</div>
+          <h4>${c.name}</h4>
+          <p><strong>Role:</strong> ${c.role}</p>
+          <p><strong>Project:</strong> ${c.project}</p>
+        </div>
+      `
+          )
+          .join("");
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("contributorSearch");
+  const container = document.getElementById("contributorList");
+
+  if (!searchInput || !container) return;
+
+  const highlightMatch = (text, keyword) => {
+    if (!keyword) return text;
+    return text.replace(
+      new RegExp(`(${keyword})`, "gi"),
+      `<mark class="highlight">$1</mark>`
+    );
+  };
+
+  function performSearch(keyword) {
+    const cards = container.querySelectorAll(".contributor-card");
+    let anyVisible = false;
+
+    cards.forEach((card) => {
+      const content = card.innerText.toLowerCase();
+      const isMatch = content.includes(keyword.toLowerCase());
+
+      if (isMatch) {
+        card.style.display = "block";
+        anyVisible = true;
+
+        const nameEl = card.querySelector("h3");
+        const roleEl = card.querySelector("p");
+
+        if (nameEl)
+          nameEl.innerHTML = highlightMatch(nameEl.textContent, keyword);
+        if (roleEl)
+          roleEl.innerHTML = highlightMatch(roleEl.textContent, keyword);
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // Optional: Show message if nothing matches
+    const messageEl = container.querySelector(".no-match");
+    if (!anyVisible) {
+      if (!messageEl) {
+        const msg = document.createElement("p");
+        msg.textContent = "No matching contributors found.";
+        msg.className = "no-match";
+        container.appendChild(msg);
+      }
+    } else if (messageEl) {
+      messageEl.remove();
+    }
+  }
+
+  searchInput.addEventListener("input", function () {
+    performSearch(this.value.trim());
+  });
+});
+
+    </script>
+
+    <style>
+      .contributor-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .contributor-card {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .contributor-card .avatar {
+        background: #007bff;
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        border-radius: 50%;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </body>
+</html>

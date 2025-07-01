@@ -1,0 +1,1043 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; 
+}
+
+body {
+   display: flex;
+  flex-direction: column;
+  height: 100vh;         
+  overflow: hidden;      
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* header part */
+
+.header {
+  background-color: #004466;
+  padding: 15px 20px;
+  color: #fff;
+}
+
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+@media (max-width: 768px) 
+{
+  .menu-toggle {
+    display: block;
+  }
+}
+
+
+#sub_nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+#sub_nav li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#sub_nav li a:hover {
+  color: #ffcc00;
+}
+/* ==== Responsive Navbar (Only Media Query CSS) ==== */
+@media (max-width: 768px) {
+  /* Hide nav links initially */
+  #sub_nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #003344;
+    width: 100%;
+    padding: 10px 0;
+    position: absolute;
+    top: 60px; /* adjust based on header height */
+    left: 0;
+    z-index: 1000;
+  }
+
+  /* Show menu toggle icon */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    margin-left: auto;
+    padding: 10px;
+  }
+
+  /* When active class is added via JavaScript, show nav */
+  #sub_nav.show {
+    display: flex;
+  }
+
+  .nav_bar {
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+/* 2 */
+@media (max-width: 768px) {
+  .nav_bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    padding: 5px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  #sub_nav {
+  transition: background-color 0.3s ease;
+}
+
+  #sub_nav {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #002c42;
+    width: 100%;
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+
+  #sub_nav.show {
+    display: flex;
+  }
+    body.dark-mode #sub_nav {
+    background-color: #1e1e1e; /* Matches dark header */
+  }
+
+}
+
+/* 2 */
+/* main part */
+
+/* .main {
+  flex: 1;                
+  overflow-y: auto;       
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+} */
+
+/* .main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 20px;
+} */
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  width: 100%;
+  min-height: calc(100vh - 160px); 
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.welcome-section {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+  font-size: 32px;
+  color: #004466;
+  margin-bottom: 10px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* .project-list {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  color: #666;
+}
+
+.project-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-card {
+
+  flex: 1 1 45%; 
+  text-align: center;
+  max-width: 45%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+
+.project-card h3 {
+  font-size: 20px;
+  color: #004466;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-card p {
+  margin-bottom: 8px;
+  max-height: 48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+
+.view-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #004466;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.view-button:hover {
+  background-color: #006080;
+}
+
+
+
+/* footer */
+
+.footer {
+  background-color: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+  color: #fff;
+}
+
+.footer .copyright {
+  font-size: 13px;
+  color: #aaa;
+}
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .main {
+    flex: 1;
+  }
+
+  .footer {
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+
+/* responsive */
+
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: block;
+  }
+
+  .main {
+    padding-bottom: 40px; /* gives breathing space above footer */
+  }
+
+  .footer {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+
+
+
+/* admin-dashboard */
+
+@media (max-width: 768px) {
+  .nav_bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .admin-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+  }
+
+  #sub_nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #004466;
+    padding: 10px 20px;
+    z-index: 999;
+  }
+
+  #sub_nav.show {
+    display: flex;
+  }
+
+  #sub_nav li {
+    margin: 8px 0;
+  }
+
+  /* Search input responsive tweak */
+  .nav-search {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.95rem;
+  }
+
+  /* Dark mode compatibility */
+  body.dark-mode #sub_nav {
+    background-color: #1e1e1e;
+  }
+
+  body.dark-mode .admin-menu-toggle {
+    color: #fff;
+  }
+
+  body.dark-mode .nav-search {
+    background-color: #2a2a2a;
+    color: #fff;
+    border: 1px solid #555;
+  }
+}
+
+
+
+/* Admin welcome title */
+.main h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #004466;
+  text-align: center;
+}
+
+/* Add project button */
+.admin-actions {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.add-button {
+  display: inline-block;
+  background-color: #004466;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: #006080;
+}
+
+
+
+/* Future cards or rows can go here later */
+
+
+
+   /* ADMIN LOGIN PAGE STYLES */
+
+
+.login-box {
+  max-width: 400px;
+  background-color: #fff;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+  text-align: center;
+  color: #004466;
+  margin-bottom: 25px;
+}
+/* .form-box {
+  width: 95%;               
+  max-width: 800px;         
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+
+.form-box {
+  width: 95%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #004466;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #004466;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #006080;
+}
+
+/* Mobile adjustments */
+@media (max-width: 500px) {
+  .login-box {
+    margin: 30px 15px;
+    padding: 25px;
+  }
+}
+
+/* message bix (reuseable) */
+
+/* .message-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #004466;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 15px;
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, bottom 0.4s ease;
+}
+
+.message-box.show {
+  display: block;
+  opacity: 1;
+  bottom: 40px;
+} */
+
+/* Base Message Box Styling */
+/* Message Box Base Style */
+.message-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  max-width: 90%;
+  width: fit-content;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  background-color: #007bff; /* default info */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+/* Show when active */
+.message-box.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Success Message */
+.message-box.success {
+  background-color: #28a745;
+}
+
+/* Error Message */
+.message-box.error {
+  background-color: #dc3545;
+}
+
+/* Warning Message */
+.message-box.warning {
+  background-color: #ffc107;
+  color: #000;
+}
+
+/* Optional: for dark mode (if you use a body.dark or similar class) */
+body.dark .message-box {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+
+
+/* dashboard project-card */
+
+.project-card {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* edit & delete buttons */
+.dashboard-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.dashboard-actions button {
+  padding: 6px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+/* message box for confirming delete operation  */
+.confirm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.confirm-content {
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.confirm-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.confirm-actions button {
+  margin: 0 10px;
+  padding: 8px 18px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#confirmYes {
+  background-color: #dc3545;
+  color: white;
+}
+
+#confirmCancel {
+  background-color: #ccc;
+}
+
+/* ====== ABOUT US PAGE STYLES ====== */
+.about-section {
+  max-width: 100vwpx;
+  margin: 5px auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+.about-section h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.about-box {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.about-box:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-box h3 {
+  font-size: 1.5rem;
+  color: #007acc;
+  margin-bottom: 15px;
+}
+
+.about-box p {
+  font-size: 1rem;
+  color: #444;
+}
+
+.about-box ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.about-box ul li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+  color: #333;
+}
+
+/* Dark mode support */
+body.dark-mode .about-section h2 {
+  color: #f0f0f0;
+}
+
+body.dark-mode .about-box {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #ccc;
+  box-shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .about-box h3 {
+  color: #4ea3ff;
+}
+
+body.dark-mode .about-box p,
+body.dark-mode .about-box ul li {
+  color: #ddd;
+}
+
+
+
+/* darkmode */
+/* Dark mode styles */
+
+
+/* ==== DARK MODE STYLES ==== */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === Header & Navbar === */
+body.dark-mode .header,
+body.dark-mode .nav_bar {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #2c2c2c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .nav_bar a {
+  color: #f1f1f1;
+  text-decoration: none;
+}
+
+body.dark-mode .nav_bar a:hover {
+  color: #00bcd4;
+}
+
+/* === Footer === */
+body.dark-mode .footer {
+  background-color: #1f1f1f;
+  color: #ccc;
+  border-top: 1px solid #333;
+}
+
+body.dark-mode .footer a {
+  color: #ddd;
+}
+
+body.dark-mode .footer a:hover {
+  color: #00bcd4;
+}
+
+/* === Sections, Boxes, Containers === */
+body.dark-mode .main,
+body.dark-mode .form-box,
+body.dark-mode section,
+body.dark-mode .project-list {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+/* === Input Fields === */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #888;
+}
+
+/* === Buttons === */
+body.dark-mode button,
+body.dark-mode .login-button,
+body.dark-mode .view-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  transition: background 0.3s ease;
+}
+
+body.dark-mode button:hover,
+body.dark-mode .login-button:hover,
+body.dark-mode .view-button:hover {
+  background-color: #444;
+}
+
+/* === Project Cards === */
+body.dark-mode .project-card{
+  background-color: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .project-card h3 {
+  color: #fff;
+}
+
+/* === Dashboard Actions === */
+body.dark-mode .dashboard-actions button {
+  background-color: #333;
+  color: #f1f1f1;
+  border: 1px solid #444;
+  border-radius: 5px;
+  margin-right: 8px;
+}
+
+body.dark-mode .dashboard-actions button:hover {
+  background-color: #555;
+}
+
+
+/* === Confirm Box === */
+body.dark-mode #confirmBox {
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode #confirmBox button {
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+  margin: 10px 5px;
+  padding: 8px 16px;
+  border: none;
+}
+
+body.dark-mode #confirmBox button:hover {
+  background-color: #555;
+}
+
+/* === Form Labels === */
+body.dark-mode label {
+  color: #ccc;
+  font-weight: 500;
+}
+
+/* === Section Headings (like "Add New Project", h2/h3/h4) === */
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+  color: #f1f1f1;
+}
+
+/* === Bold Text (strong tags like Group, Title etc.) === */
+body.dark-mode strong {
+  color: #ddd;
+}
+
+/* Dark mode styles for contributor cards */
+body.dark-mode .contributor-card {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .contributor-card h3 {
+  color: #ffffff;
+}
+
+body.dark-mode .contributor-card p {
+  color: #cccccc;
+}
+
+body.dark-mode .contributor-card a {
+  color: #4ea3ff;
+}
+
+/* === Scrollbar Styling for WebKit Browsers (Chrome, Edge, Safari) === */
+body.dark-mode::-webkit-scrollbar {
+  width: 8px;
+}
+
+body.dark-mode::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+  border: 2px solid #1e1e1e;
+}
+
+body.dark-mode::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* === Scrollbar Styling for Firefox === */
+body.dark-mode {
+  scrollbar-width: thin;
+  scrollbar-color: #555 #1e1e1e;
+}
+
+#darkModeToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #444;
+  color: white;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#darkModeToggle:hover {
+  background-color: #00bcd4;
+}
+
+/* Navbar Search Input */
+.nav-search {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+}
+
+body.dark-mode .nav-search {
+  background-color: #2a2a2a;
+  color: #fff;
+  border: 1px solid #555;
+}
+.highlight {
+  background-color: yellow;
+  color: black;
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+

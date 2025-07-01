@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCA Project Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <nav class="nav_bar">
+        <div class="logo">
+          <!-- Optional: Add logo image here -->
+          <h2>BCA Project Library</h2>
+        </div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+        <ul id="sub_nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="contributors.html">Contributors</a></li>
+          <li><a href="admin-login.html">Admin Login</a></li>
+          <li>
+            <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+          </li>
+          <li>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="🔍 Search projects..."
+              class="nav-search"
+            />
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <section class="welcome-section">
+        <h1>Welcome to the BCA Project Library for the session 2022-2025</h1>
+        <p>Explore innovative projects submitted by BCA students!</p>
+      </section>
+      <section class="project-list" id="homeProjectList">
+        <!-- Project cards will be injected here -->
+      </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <ul>
+        <li><a href="footer/disclaimer.html">Disclaimer</a></li>
+        <li><a href="footer/T&C.html">Terms and Conditions</a></li>
+        <li><a href="footer/privacy.html">Privacy Policy</a></li>
+        <li><a href="footer/contact.html">Contact Us</a></li>
+      </ul>
+      <div class="copyright">
+        &copy; 2025 BCA Project Library. All rights reserved.
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

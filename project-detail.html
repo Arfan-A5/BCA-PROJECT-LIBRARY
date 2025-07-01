@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Detail - BCA Project Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav_bar">
+      <div class="logo">
+        <h2>BCA Project Library</h2>
+      </div>
+      <ul id="sub_nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contributors.html">Contributors</a></li>
+        <li><a href="admin-login.html">Admin</a></li>
+          <li> <button id="darkModeToggle" class="dark-mode-toggle">🌙</button> </li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Project Detail Section -->
+  <main class="main">
+    <section class="form-box">
+      <a href="index.html" class="add-button" style="margin-bottom: 20px; display: inline-block;">← Back to Home</a>
+      <h2>📘 Project Details</h2>
+      <div id="projectDetails" style="margin-top: 20px;">
+        <!-- JS will populate this -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <ul>
+      <li><a href="footer/disclaimer.html">Disclaimer</a></li>
+      <li><a href="footer/T&C.html">Terms & Conditions</a></li>
+      <li><a href="footer/privacy.html">Privacy Policy</a></li>
+      <li><a href="footer/contact.html">Contact Us</a></li>
+    </ul>
+    <div class="copyright">
+      &copy; 2025 BCA Project Library. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Message Box (optional use) -->
+  <div id="messageBox" class="message-box"></div>
+
+  <!-- JS Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const container = document.getElementById("projectDetails");
+      const projects = JSON.parse(localStorage.getItem("bcaProjects")) || [];
+
+      if (!id || !projects[id]) {
+        container.innerHTML = "<p style='color: red;'>❌ Project not found!</p>";
+        return;
+      }
+
+      const p = projects[id];
+
+      const html = `
+        <h3>${p.title}</h3>
+        <p><strong>Group:</strong> ${p.group}</p>
+        <p><strong>Description:</strong> ${p.description}</p>
+        <p><strong>Members:</strong> ${p.members}</p>
+        <p><strong>Contributions:</strong> ${p.contributions}</p>
+        ${p.tags ? `<p><strong>Tags:</strong> ${p.tags}</p>` : ""}
+        ${p.github ? `<p><strong>GitHub:</strong> <a href="${p.github}" target="_blank">${p.github}</a></p>` : ""}
+        ${
+          p.screenshotURL
+            ? `<p><strong>Screenshot:</strong><br/><img src="${p.screenshotURL}" alt="Screenshot" style="max-width:100%; margin-top:10px;" /></p>`
+            : ""
+        }
+      `;
+
+      container.innerHTML = html;
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

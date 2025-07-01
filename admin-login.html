@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login - BCA Project Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav_bar">
+      <div class="logo">
+        <h2>BCA Project Library</h2>
+      </div>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+      <ul id="sub_nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contributors.html">Contributors</a></li>
+        <li>
+  <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+</li>
+
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Login Form Section -->
+  <main class="main">
+    <section class="login-box">
+      <h2>Admin Login</h2>
+      <form id="adminLoginForm">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required />
+        </div>
+
+        <button type="submit" class="login-button">Login</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <ul>
+      <li><a href="footer/disclaimer.html">Disclaimer</a></li>
+      <li><a href="footer/T&C.html">Terms and Conditions</a></li>
+      <li><a href="footer/privacy.html">Privacy Policy</a></li>
+      <li><a href="footer/contact.html">Contact Us</a></li>
+    </ul>
+    <div class="copyright">
+      &copy; 2025 BCA Project Library. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <div id="messageBox" class="message-box"></div>
+</body>
+</html>
