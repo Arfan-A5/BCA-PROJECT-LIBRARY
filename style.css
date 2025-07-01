@@ -440,6 +440,9 @@ body {
 
 
 /* Admin welcome title */
+.admin-menu-toggle {
+    display:hidden;
+  }
 .main h1 {
   font-size: 28px;
   margin-bottom: 20px;
