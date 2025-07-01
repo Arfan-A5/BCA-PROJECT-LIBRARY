@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const password = document.getElementById("password").value.trim();
 
       if (username === "admin" && password === "bca123") {
-        window.location.href = "admin/dashboard.html";
+        window.location.href = "dashboard.html";
       } else {
         showMessage("Invalid username or password. Please try again.", "error");
       }
